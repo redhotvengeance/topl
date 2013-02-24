@@ -1,0 +1,21 @@
+{
+  "name": "topl",
+  "description": "TOML parser for Node.js",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ian Lollar"
+  },
+  "keywords": ["toml", "parser"],
+  "engines" : ["node"],
+  "repository":   {
+    "type": "git",
+    "url": "git://github.com/redhotvengeance/topl.git"
+  },
+  "main" : "./lib/topl",
+  "devDependencies": {
+    "coffee-script": "1.4.0"
+  },
+  "scripts": {
+    "prepublish": "./node_modules/.bin/coffee --bare -c -o lib src"
+  }
+}
