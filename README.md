@@ -34,7 +34,7 @@ require('fs').readFile('<path to toml file>', function(err, data) {
 ```
 
 ## Test
-Want to test it out? Run the example TOML in `test/example.tml` with:
+Want to test it out? Run the example TOML in `test/example.toml` with:
 
 ```bash
 cake test
