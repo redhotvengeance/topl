@@ -1,4 +1,4 @@
-# TOPL
+# topl
 
 [Node.js](http://nodejs.org/) meet [TOML](https://github.com/mojombo/toml).
 
