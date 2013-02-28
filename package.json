@@ -13,7 +13,8 @@
   },
   "main" : "./lib/topl",
   "devDependencies": {
-    "coffee-script": "1.4.0"
+    "coffee-script": "1.4.0",
+    "chai": "1.5.0"
   },
   "scripts": {
     "prepublish": "./node_modules/.bin/coffee --bare -c -o lib src"
