@@ -1,7 +1,7 @@
 {
   "name": "topl",
   "description": "TOML parser for Node.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Ian Lollar"
   },
@@ -13,9 +13,12 @@
   },
   "main" : "./lib/topl",
   "devDependencies": {
-    "coffee-script": "1.4.0"
+    "coffee-script": "1.4.0",
+    "mocha": "1.8.1",
+    "chai": "1.5.0"
   },
   "scripts": {
+    "test": "./node_modules/.bin/mocha",
     "prepublish": "./node_modules/.bin/coffee --bare -c -o lib src"
   }
 }

@@ -16,6 +16,7 @@ negative = -5000
 float = 5.5
 enabled = true
 disabled = false
+path = "C:\\Users\\nodejs\\templates"
 
 [servers]
 
@@ -33,4 +34,8 @@ data = [ ["gamma", "delta"], [1, 2] ] # just an update to make sure parsers supp
 more = [
   "hello",
   "goodbye"
+]
+trailing = [
+  "hello",
+  "goodbye",
 ]

@@ -6,6 +6,7 @@ parse = (data) =>
 
   for line, i in lines
     @currentLine = i + 1
+    object = null
 
     stripped = stripComments line
     trimmed = trimWhitespace stripped
@@ -56,6 +57,9 @@ createGroup = (string) =>
   for group, i in groupArray
     if !ref[group]?
       ref[group] = {}
+    else
+      if i is groupArray.length - 1
+        throw new Error "Check your groups and keys! You\'re attempting an overwrite on line #{@currentLine}!"
 
     ref = ref[group]
     
@@ -114,7 +118,9 @@ createArrayValue = (text, location) =>
 
   while location < text.length
     if text.charAt(location) is ',' or text.charAt(location) is ']'
-      location++
+      if text.charAt(location) is ','
+        location++
+      
       break
     else
       value += text.charAt location
@@ -131,19 +137,21 @@ createPrimitive = (text) =>
 
   if /^\"(.*)\"$/i.test text
     primitive.type = 'string'
-
+    
     string = text.substring 1, text.length - 1
+
     for char, i in string
       if char is '\\'
-        if string.charAt(i + 1) isnt '0' and string.charAt(i + 1) isnt 't' and string.charAt(i + 1) isnt 'n' and string.charAt(i + 1) isnt 'r' and string.charAt(i + 1) isnt '"' and string.charAt(i + 1) isnt '\\'
-          throw new Error 'Check your stings! Escape any forward slashes!'
+        if string.charAt(i - 1) isnt '\\'
+          if string.charAt(i + 1) isnt '0' and string.charAt(i + 1) isnt 't' and string.charAt(i + 1) isnt 'n' and string.charAt(i + 1) isnt 'r' and string.charAt(i + 1) isnt '"' and string.charAt(i + 1) isnt '\\'
+            throw new Error 'Check your stings! Escape any forward slashes!'
       else if char is '"'
         if string.charAt(i - 1) isnt '\\'
           throw new Error 'Check your stings! Escape any double quotes!'
 
     primitive.value = string
     primitive
-  else if /^(\d{4})(?:-?W(\d+)(?:-?(\d+)D?)?|(?:-(\d+))?-(\d+))(?:[T ](\d+):(\d+)(?::(\d+)(?:\.(\d+))?)?)?(?:Z(-?\d*))?$/.test text
+  else if /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z$/.test text
     primitive.type = 'date'
     primitive.value = new Date text
     primitive
