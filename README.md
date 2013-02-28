@@ -1,5 +1,7 @@
 # topl
 
+[![Build Status](https://travis-ci.org/redhotvengeance/topl.png)](https://travis-ci.org/redhotvengeance/topl)
+
 [Node.js](http://nodejs.org/) meet [TOML](https://github.com/mojombo/toml).
 
 ## What?
