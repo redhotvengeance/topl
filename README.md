@@ -1,6 +1,7 @@
 # topl
 
 [![Build Status](https://travis-ci.org/redhotvengeance/topl.png)](https://travis-ci.org/redhotvengeance/topl)
+(Supports TOML spec: [3f4224ecdc4a65fdd28b4fb70d46f4c0bd3700aa](https://github.com/mojombo/toml/tree/3f4224ecdc4a65fdd28b4fb70d46f4c0bd3700aa))
 
 [Node.js](http://nodejs.org/) meet [TOML](https://github.com/mojombo/toml).
 
@@ -35,8 +36,20 @@ require('fs').readFile('<path to toml file>', function(err, data) {
 });
 ```
 
-## Test
-Want to test it out? Run the example TOML in `test/example.toml` with:
+## Tests
+Want to test it out? Install `mocha`:
+
+```bash
+npm install -g mocha
+```
+
+Then run the tests:
+
+```bash
+mocha
+```
+
+You can also run the example TOML in `test/example.toml` with:
 
 ```bash
 cake test
