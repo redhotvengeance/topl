@@ -59,6 +59,9 @@ describe 'topl', ->
       assert.deepEqual {array: [[1, 2],["1", "2"]]}, topl.parse 'array=[[1, 2], ["1", "2"]]'
     it 'should support multiline arrays', ->
       assert.deepEqual {array: ["one", "two"]}, topl.parse 'array=[\n"one",\n"two"\n]'
+    it 'should allow trailing commas', ->
+      assert.deepEqual {array: [1, 2]}, topl.parse 'array=[1, 2,]'
+      assert.deepEqual {array: ["one", "two"]}, topl.parse 'array=[\n"one",\n"two",\n]'
 
   describe 'date', ->
     it 'should return a date', ->

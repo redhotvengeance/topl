@@ -35,3 +35,7 @@ more = [
   "hello",
   "goodbye"
 ]
+trailing = [
+  "hello",
+  "goodbye",
+]
