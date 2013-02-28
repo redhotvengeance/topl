@@ -6,6 +6,7 @@ parse = (data) =>
 
   for line, i in lines
     @currentLine = i + 1
+    object = null
 
     stripped = stripComments line
     trimmed = trimWhitespace stripped
