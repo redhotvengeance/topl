@@ -145,7 +145,7 @@ createPrimitive = (text) =>
 
     primitive.value = string
     primitive
-  else if /^(\d{4})(?:-?W(\d+)(?:-?(\d+)D?)?|(?:-(\d+))?-(\d+))(?:[T ](\d+):(\d+)(?::(\d+)(?:\.(\d+))?)?)?(?:Z(-?\d*))?$/.test text
+  else if /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z$/.test text
     primitive.type = 'date'
     primitive.value = new Date text
     primitive
