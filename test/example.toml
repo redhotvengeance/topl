@@ -16,6 +16,7 @@ negative = -5000
 float = 5.5
 enabled = true
 disabled = false
+path = "C:\\Users\\nodejs\\templates"
 
 [servers]
 

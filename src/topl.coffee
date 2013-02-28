@@ -134,12 +134,14 @@ createPrimitive = (text) =>
 
   if /^\"(.*)\"$/i.test text
     primitive.type = 'string'
-
+    
     string = text.substring 1, text.length - 1
+
     for char, i in string
       if char is '\\'
-        if string.charAt(i + 1) isnt '0' and string.charAt(i + 1) isnt 't' and string.charAt(i + 1) isnt 'n' and string.charAt(i + 1) isnt 'r' and string.charAt(i + 1) isnt '"' and string.charAt(i + 1) isnt '\\'
-          throw new Error 'Check your stings! Escape any forward slashes!'
+        if string.charAt(i - 1) isnt '\\'
+          if string.charAt(i + 1) isnt '0' and string.charAt(i + 1) isnt 't' and string.charAt(i + 1) isnt 'n' and string.charAt(i + 1) isnt 'r' and string.charAt(i + 1) isnt '"' and string.charAt(i + 1) isnt '\\'
+            throw new Error 'Check your stings! Escape any forward slashes!'
       else if char is '"'
         if string.charAt(i - 1) isnt '\\'
           throw new Error 'Check your stings! Escape any double quotes!'
