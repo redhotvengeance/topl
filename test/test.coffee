@@ -74,3 +74,5 @@ describe 'topl', ->
       assert.deepEqual {group: {test: 'test'}}, topl.parse '[group]\ntest="test"'
     it 'should create a subgroup', ->
       assert.deepEqual {group: {sub: {test: 'test'}}}, topl.parse '[group.sub]\ntest="test"'
+    it 'should not allow overwriting keys', ->
+      should.Throw (-> topl.parse('[group]\nkey="value"\n[group.key]\nvalue="fail"'))

@@ -57,6 +57,9 @@ createGroup = (string) =>
   for group, i in groupArray
     if !ref[group]?
       ref[group] = {}
+    else
+      if i is groupArray.length - 1
+        throw new Error "Check your groups and keys! You\'re attempting an overwrite on line #{@currentLine}!"
 
     ref = ref[group]
     
