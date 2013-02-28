@@ -114,7 +114,9 @@ createArrayValue = (text, location) =>
 
   while location < text.length
     if text.charAt(location) is ',' or text.charAt(location) is ']'
-      location++
+      if text.charAt(location) is ','
+        location++
+      
       break
     else
       value += text.charAt location
