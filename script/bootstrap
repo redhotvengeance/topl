@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+echo ''
+echo 'Bootstraping topl...'
+
+node --version >/dev/null 2>&1 || { echo >&2 "\nIt looks like Node.js isn't installed. You're going to need it: brew install node\n"; exit 1; }
+
+npm install
+
+echo ''
+echo 'The boots have been strapped!'
