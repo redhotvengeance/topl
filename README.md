@@ -49,7 +49,7 @@ Then run the tests:
 mocha
 ```
 
-You can also run the example TOML in `test/example.toml` with:
+You can also run the examples in `test/fixtures` through topl with:
 
 ```bash
 cake test
