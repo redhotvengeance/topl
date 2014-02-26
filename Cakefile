@@ -1,4 +1,5 @@
 fs = require('fs')
+{exec} = require 'child_process'
 topl = require('./src/topl')
 
 option '-s', '--string', 'Output test as string'
@@ -25,3 +26,14 @@ task 'test', 'Run examples in test/fixtures though topl', (options) ->
         console.log JSON.stringify(parsed)
       else
         console.log parsed
+
+task 'build', 'Compile topl JavaScript files from CoffeeScript source', ->
+  exec './node_modules/.bin/coffee -c -o lib src', (error, stdout, stderr) ->
+    if error
+      console.log error
+    else
+      exec './node_modules/.bin/uglifyjs -m --comments /topl/ -o ./lib/topl.min.js ./lib/topl.js', (error, stdout, stderr) ->
+        if error
+          console.log error
+        else
+          console.log 'Build complete!'

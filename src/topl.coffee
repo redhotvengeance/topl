@@ -295,4 +295,12 @@ getValue = =>
 
   value
 
-module.exports.parse = parse
+if typeof Array.isArray is 'undefined'
+  Array.isArray = (obj) ->
+    Object.toString.call(obj) is '[object] Array'
+
+if exports?
+  exports.parse = parse
+else
+  @['topl'] = {}
+  @['topl']['parse'] = parse

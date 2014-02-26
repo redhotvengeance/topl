@@ -15,10 +15,10 @@
   "devDependencies": {
     "coffee-script": "~1.7",
     "mocha": "~1.17",
-    "chai": "~1.9"
+    "chai": "~1.9",
+    "uglify-js": "~2.4"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "prepublish": "./node_modules/.bin/coffee --bare -c -o lib src"
+    "test": "./node_modules/.bin/mocha"
   }
 }
