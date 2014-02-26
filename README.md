@@ -1,9 +1,11 @@
 # topl
 
 [![Build Status](https://travis-ci.org/redhotvengeance/topl.png)](https://travis-ci.org/redhotvengeance/topl)
-(Supports TOML spec: [3f4224ecdc4a65fdd28b4fb70d46f4c0bd3700aa](https://github.com/mojombo/toml/tree/3f4224ecdc4a65fdd28b4fb70d46f4c0bd3700aa))
+[![NPM version](https://badge.fury.io/js/topl.png)](http://badge.fury.io/js/topl)
 
-[Node.js](http://nodejs.org/) meet [TOML](https://github.com/mojombo/toml).
+JavaScript ([Node.js](http://nodejs.org/) and browser) meets [TOML](https://github.com/mojombo/toml).
+
+Supports most recent TOML spec ([v0.2.0](https://github.com/mojombo/toml/commit/4f23be43e42775493f142e7dd025b6227e037dd9)).
 
 ## What?
 It's [Tom's Obvious, Minimal Language](https://github.com/mojombo/toml).
@@ -11,7 +13,7 @@ It's [Tom's Obvious, Minimal Language](https://github.com/mojombo/toml).
 ## Why?
 Why not?
 
-## Okay, but why in Node.js?
+## Okay, but why in Node.js and the browser?
 Because it's time to have a simple config language that works across **all** platforms, not just one.
 
 ## How to install
@@ -22,12 +24,20 @@ npm install topl
 
 ## How to use
 
-### Require it
+### Node.js
+
+#### Bootstrap it
+
+```bash
+./script/bootstrap
+```
+
+#### Require it
 ```js
 var topl = require('topl');
 ```
 
-### Parse it
+#### Parse it
 ```js
 require('fs').readFile('<path to toml file>', function(err, data) {
   var parsedObject = topl.parse(data);
@@ -36,17 +46,24 @@ require('fs').readFile('<path to toml file>', function(err, data) {
 });
 ```
 
-## Tests
-Want to test it out? Install `mocha`:
+### Browser
 
-```bash
-npm install -g mocha
+#### Load it
+
+```html
+<script src="topl.min.js" type="text/javascript"></script>
 ```
 
-Then run the tests:
+#### Parse it
 
+```js
+topl.parse('hello = "world"');
+```
+
+## Tests
+Simply run the helper script:
 ```bash
-mocha
+./script/test
 ```
 
 You can also run the examples in `test/fixtures` through topl with:
@@ -59,6 +76,13 @@ Want to see the output as a string? Go for it:
 
 ```bash
 cake -s test
+```
+
+## Build
+You can compile the CoffeeScript source into the JavaScript files in `lib` by running:
+
+```bash
+cake build
 ```
 
 ## Contribute
