@@ -13,9 +13,9 @@
   },
   "main" : "./lib/topl",
   "devDependencies": {
-    "coffee-script": "1.4.0",
-    "mocha": "1.8.1",
-    "chai": "1.5.0"
+    "coffee-script": "~1.7",
+    "mocha": "~1.17",
+    "chai": "~1.9"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha",
