@@ -13,10 +13,10 @@
   },
   "main" : "./lib/topl",
   "devDependencies": {
-    "coffee-script": "~1.7",
-    "mocha": "~1.17",
-    "chai": "~1.9",
-    "uglify-js": "~2.4"
+    "coffee-script": "1.7.1",
+    "mocha": "1.20.1",
+    "chai": "1.9.1",
+    "uglify-js": "2.4.14"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha"
