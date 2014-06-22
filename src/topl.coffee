@@ -239,7 +239,7 @@ makeTable = =>
   @currentKey = key
 
 makeKey = =>
-  if /\w/i.test @currentCharacter
+  if /[\w~!@#$^&*()_+-`1234567890\[\]\\|\/?><.,;:']/i.test @currentCharacter
     key = @currentCharacter
 
     if nextCharacter() isnt ' ' and nextCharacter() isnt '\t' and nextCharacter() isnt '='
