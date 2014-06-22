@@ -191,15 +191,16 @@ makeTable = =>
 
   key = @currentCharacter
 
-  if nextCharacter() isnt ' ' and nextCharacter() isnt '\t' and nextCharacter() isnt ']'
+  if nextCharacter() isnt ']'
     while progress()
       key += @currentCharacter
 
-      if nextCharacter() is ' ' or nextCharacter() is '\t' or nextCharacter() is ']'
+      if nextCharacter() is ']'
         break
 
   progress()
   stripWhitespace()
+  key = trimWhitespace(key)
 
   if array
     progress()
