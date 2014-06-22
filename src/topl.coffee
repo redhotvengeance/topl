@@ -243,13 +243,14 @@ makeKey = =>
   if /[\w~!@#$^&*()_+-`1234567890\[\]\\|\/?><.,;:']/i.test @currentCharacter
     key = @currentCharacter
 
-    if nextCharacter() isnt ' ' and nextCharacter() isnt '\t' and nextCharacter() isnt '='
+    if nextCharacter() isnt '='
       while progress()
         key += @currentCharacter
-        if nextCharacter() is ' ' or nextCharacter() is '\t' or nextCharacter() is '='
+        if nextCharacter() is '='
           break
 
     stripWhitespace()
+    key = trimWhitespace(key)
 
     if progress() is '='
       stripWhitespace()
