@@ -261,6 +261,9 @@ makeKey = =>
     if !value
       error "Syntax error on line #{@line}"
 
+    if @currentObject[key]?
+      error "Trying to overwrite previously set value on line #{@line}"
+
     @currentObject[key] = value.value
     @tableKeys.push "#{@currentKey}.#{key}"
 
