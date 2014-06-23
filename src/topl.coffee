@@ -214,6 +214,11 @@ makeTable = =>
   @currentObject = @parsed
 
   for table, i in tableArray
+    table = trimWhitespace(table)
+
+    if table.length <= 0
+      error "Improper table declaration on line #{@line}"
+
     if !@currentObject[table]?
       if array
         @currentObject[table] = [{}]
@@ -229,7 +234,7 @@ makeTable = =>
         else
           for tableKey in @tableKeys
             if tableKey is key
-              throw new Error "Check your tables and keys! You\'re attempting an overwrite on line #{@line}!"
+              error "Check your tables and keys! You\'re attempting an overwrite on line #{@line}!"
       else
         @currentObject = @currentObject[table]
 
