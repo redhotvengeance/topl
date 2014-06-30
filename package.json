@@ -1,6 +1,6 @@
 {
   "name": "topl",
-  "description": "TOML parser for Node.js",
+  "description": "TOML parser for Node.js/browser",
   "version": "0.3.0",
   "author": {
     "name": "Ian Lollar"
