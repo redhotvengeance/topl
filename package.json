@@ -19,6 +19,6 @@
     "uglify-js": "2.4.14"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha ./test/test.coffee"
   }
 }
