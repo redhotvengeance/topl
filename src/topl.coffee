@@ -193,7 +193,10 @@ makeTable = =>
 
   if nextCharacter() isnt ']'
     while progress()
-      key += @currentCharacter
+      if @currentCharacter isnt '[' and @currentCharacter isnt '#'
+        key += @currentCharacter
+      else
+        error "Improper table declaration on line #{@line}"
 
       if nextCharacter() is ']'
         break
