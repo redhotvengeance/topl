@@ -23,8 +23,6 @@ describe 'topl', ->
       assert.deepEqual {test: [{}]}, topl.parse '[[test]] # comment'
     it 'should not strip appropriate non-comment hashbangs', ->
       assert.deepEqual {test: 'test # with comment in string'}, topl.parse 'test = "test # with comment in string" # and comment out of string'
-      assert.deepEqual {"test#": {}}, topl.parse '[test#] # comment'
-      assert.deepEqual {"test#": [{}]}, topl.parse '[[test#]] # comment'
     it 'should error at missing hashbangs', ->
       should.Throw (-> topl.parse('test = "test" hanging comment'))
       should.Throw (-> topl.parse('test = 1 hanging comment'))
