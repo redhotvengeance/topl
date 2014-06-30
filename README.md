@@ -78,6 +78,14 @@ Want to see the output as a string? Go for it:
 cake -s test
 ```
 
+`topl` also supports running the [toml-test](https://github.com/BurntSushi/toml-test) test suite. Pass `test/toml-test.js` to `toml-test` to run it:
+
+```bash
+export GOPATH=$HOME/go
+go get github.com/BurntSushi/toml-test
+~/go/bin/toml-test ./test/toml-test.js
+```
+
 ## Build
 You can compile the CoffeeScript source into the JavaScript files in `lib` by running:
 
