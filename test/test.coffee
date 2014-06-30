@@ -104,7 +104,7 @@ describe 'topl', ->
     it 'should create a subtable', ->
       assert.deepEqual {table: {sub: {test: 'test'}}}, topl.parse '[table.sub]\ntest = "test"'
     it 'should allow writing to a super-table if it doesn\'t overwrite any keys', ->
-      assert.deepEqual {a: {b: {c: 1 }}, d: 2 }, topl.parse '[a.b]\nc = 1\n[a]\nd = 2'
+      assert.deepEqual {a: {b: {c: 1 }, d: 2}}, topl.parse '[a.b]\nc = 1\n[a]\nd = 2'
     it 'should not allow overwriting keys', ->
       should.Throw (-> topl.parse('[table]\nkey = "value"\n[table.key]\nvalue = "fail"'))
       should.Throw (-> topl.parse('[table]\nkey = "value"\n[table]\nvalue = "fail"'))
