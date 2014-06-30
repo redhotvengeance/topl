@@ -1,5 +1,5 @@
 ###!
-# topl (v0.3.0) - a TOML parser for JavaScript
+# topl (v0.3.1) - a TOML parser for JavaScript
 # Copyright (c) 2014 Ian Lollar (rhv@redhotvengeance.com)
 # Distributed under The MIT License
 # https://github.com/redhotvengeance/topl
