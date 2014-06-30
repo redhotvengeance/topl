@@ -215,27 +215,39 @@ makeTable = =>
 
   for table, i in tableArray
     table = trimWhitespace(table)
+    last = false
 
     if table.length <= 0
       error "Improper table declaration on line #{@line}"
 
+    if i is tableArray.length - 1
+      last = true
+
     if !@currentObject[table]?
-      if array
+      if array and last
         @currentObject[table] = [{}]
         @currentObject = @currentObject[table][0]
       else
         @currentObject[table] = {}
         @currentObject = @currentObject[table]
     else
-      if i is tableArray.length - 1
-        if array
+      if array
+        if last
+          if !Array.isArray(@currentObject[table])
+            error "Check your tables and keys! You\'re attempting an overwrite on line #{@line}!"
+
           @currentObject[table].push {}
           @currentObject = @currentObject[table][@currentObject[table].length - 1]
         else
-          for tableKey in @tableKeys
-            if tableKey is key
-              error "Check your tables and keys! You\'re attempting an overwrite on line #{@line}!"
+          if Array.isArray(@currentObject[table])
+            @currentObject = @currentObject[table][@currentObject[table].length - 1]
+          else
+            @currentObject = @currentObject[table]
       else
+        for tableKey in @tableKeys
+          if tableKey is key
+            error "Check your tables and keys! You\'re attempting an overwrite on line #{@line}!"
+
         @currentObject = @currentObject[table]
 
         if Array.isArray(@currentObject)
